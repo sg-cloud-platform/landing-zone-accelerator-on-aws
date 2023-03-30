@@ -37,3 +37,8 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           release_name: Release ${{ env.TAG_NAME }}
+
+      - name: update LatestLzaRelease branch with latest release
+        run: |
+          git checkout origin LatestLzaRelease
+          git rebase origin release/${{ env.TAG_NAME }}

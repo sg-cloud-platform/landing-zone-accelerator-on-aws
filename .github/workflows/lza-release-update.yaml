@@ -40,5 +40,6 @@ jobs:
 
       - name: update LatestLzaRelease branch with latest release
         run: |
-          git checkout origin LatestLzaRelease
-          git rebase origin release/${{ env.TAG_NAME }}
+          git checkout LatestLzaRelease
+          git rebase release/${{ env.TAG_NAME }}
+          git push origin LatestLzaRelease

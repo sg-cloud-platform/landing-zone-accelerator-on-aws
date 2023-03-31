@@ -48,6 +48,5 @@ jobs:
       - name: update LatestLzaRelease branch with latest release
         run: |
           git config --global --add safe.directory /github/workspace
-          git pull origin 
           git checkout LatestLzaRelease
           git rebase release/${{ env.TAG_NAME }}

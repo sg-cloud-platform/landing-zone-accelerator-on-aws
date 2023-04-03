@@ -37,16 +37,3 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           release_name: Release ${{ env.TAG_NAME }}
-
-  UpdateLatest:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: update LatestLzaRelease branch with latest release
-        run: |
-          git config --global --add safe.directory /github/workspace
-          git checkout LatestLzaRelease
-          git rebase release/${{ env.TAG_NAME }}
